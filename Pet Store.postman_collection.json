@@ -1,0 +1,489 @@
+{
+	"info": {
+		"_postman_id": "b498a3cc-296e-4a83-acdc-e47c96ed0a9f",
+		"name": "Pet Store",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29457921"
+	},
+	"item": [
+		{
+			"name": "Pets",
+			"item": [
+				{
+					"name": "Get pet by status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/pet/findByStatus?status=pending,sold",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pet",
+								"findByStatus"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "pending,sold"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get pet by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/pet/454565",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pet",
+								"454565"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add pet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 454565,\r\n  \"category\": {\r\n    \"id\": 454565,\r\n    \"name\": \"dog\"\r\n  },\r\n  \"name\": \"alex\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 454565,\r\n      \"name\": \"shepherd\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/pet",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "additionalMetadata",
+									"value": "image png",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/kuduhova.EXPASYS/Desktop/картинки/metody-i-principy-metodologii-gibkogo-testirovaniya-detail.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/pet/454565/uploadImage",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pet",
+								"454565",
+								"uploadImage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update pet",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 454565,\r\n  \"category\": {\r\n    \"id\": 454565,\r\n    \"name\": \"dog\"\r\n  },\r\n  \"name\": \"alex123\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 454565,\r\n      \"name\": \"shepherd\"\r\n    }\r\n  ],\r\n  \"status\": \"pending\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/pet",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a pet",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "special-key",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/pet/454565",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pet",
+								"454565"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Store",
+			"item": [
+				{
+					"name": "Add order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 923,\r\n  \"petId\": 12,\r\n  \"quantity\": 1,\r\n  \"shipDate\": \"2023-11-28T12:28:48.618Z\",\r\n  \"status\": \"placed\",\r\n  \"complete\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/store/order",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"store",
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get order",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/store/order/923",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"store",
+								"order",
+								"923"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete order",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/store/order/923",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"store",
+								"order",
+								"923"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"id\": 1018,\r\n    \"username\": \"james\",\r\n    \"firstName\": \"james\",\r\n    \"lastName\": \"brown\",\r\n    \"email\": \"test@mail.ru\",\r\n    \"password\": \"P@ssw0rd\",\r\n    \"phone\": \"+79998886655\",\r\n    \"userStatus\": 0\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user with Array",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  [\r\n    {\r\n    \"id\": 1019,\r\n    \"username\": \"james1\",\r\n    \"firstName\": \"james1\",\r\n    \"lastName\": \"brown1\",\r\n    \"email\": \"test@mail.ru\",\r\n    \"password\": \"P@ssw0rd\",\r\n    \"phone\": \"+79998886655\",\r\n    \"userStatus\": 0\r\n  },\r\n    {\r\n    \"id\": 1020,\r\n    \"username\": \"james2\",\r\n    \"firstName\": \"james2\",\r\n    \"lastName\": \"brown2\",\r\n    \"email\": \"test@mail.ru\",\r\n    \"password\": \"P@ssw0rd\",\r\n    \"phone\": \"+79998886655\",\r\n    \"userStatus\": 0\r\n  },\r\n    {\r\n    \"id\": 1021,\r\n    \"username\": \"james3\",\r\n    \"firstName\": \"james3\",\r\n    \"lastName\": \"brown3\",\r\n    \"email\": \"test@mail.ru\",\r\n    \"password\": \"P@ssw0rd\",\r\n    \"phone\": \"+79998886655\",\r\n    \"userStatus\": 0\r\n  }\r\n  ]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user/createWithArray",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"createWithArray"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"id\": 1018,\r\n    \"username\": \"james\",\r\n    \"firstName\": \"james\",\r\n    \"lastName\": \"brown\",\r\n    \"email\": \"test@mail.ru\",\r\n    \"password\": \"P@ssw0rd\",\r\n    \"phone\": \"+79998886655\",\r\n    \"userStatus\": 0\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user/james",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"james"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Login",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"id\": 1018,\r\n    \"username\": \"james\",\r\n    \"firstName\": \"james\",\r\n    \"lastName\": \"brown\",\r\n    \"email\": \"test@mail.ru\",\r\n    \"password\": \"P@ssw0rd\",\r\n    \"phone\": \"+79998886655\",\r\n    \"userStatus\": 0\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user/login?username=james&password=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"login"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "james"
+								},
+								{
+									"key": "password",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Logout",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"id\": 1018,\r\n    \"username\": \"james\",\r\n    \"firstName\": \"james\",\r\n    \"lastName\": \"brown\",\r\n    \"email\": \"test@mail.ru\",\r\n    \"password\": \"P@ssw0rd\",\r\n    \"phone\": \"+79998886655\",\r\n    \"userStatus\": 0\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1021,\r\n    \"username\": \"james3\",\r\n    \"firstName\": \"james34\",\r\n    \"lastName\": \"brown3\",\r\n    \"email\": \"t213est@mail.ru\",\r\n    \"password\": \"P@ssw0rd\",\r\n    \"phone\": \"+79998886655\",\r\n    \"userStatus\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user/james3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"james3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"id\": 1018,\r\n    \"username\": \"james\",\r\n    \"firstName\": \"james\",\r\n    \"lastName\": \"brown\",\r\n    \"email\": \"test@mail.ru\",\r\n    \"password\": \"P@ssw0rd\",\r\n    \"phone\": \"+79998886655\",\r\n    \"userStatus\": 0\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user/james",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"james"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://petstore.swagger.io/v2",
+			"type": "string"
+		}
+	]
+}

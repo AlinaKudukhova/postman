@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "ab03148e-a41b-4474-9ba3-b4e16468e74d",
+		"name": "NASA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29457921"
+	},
+	"item": [
+		{
+			"name": "get imagery earth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Ответ имеет тип данных массив\", function () {\r",
+							"    var responseData = pm.response.json();\r",
+							"    pm.expect(responseData.photos).to.be.an('array');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Earth date совпадает с ответом сервера\", function () {\r",
+							"    var responseBody = pm.response.json();\r",
+							"    var queryParams = pm.request.url.query.toObject();\r",
+							"    var earthDateFromRequest = queryParams['earth_date'];\r",
+							"    var earthDateFromResponse = responseBody.photos[0].earth_date;\r",
+							"\r",
+							"    console.log(\"Earth date из запроса:\", earthDateFromRequest);\r",
+							"    console.log(\"Earth date из ответа:\", earthDateFromResponse);\r",
+							"\r",
+							"    pm.expect(earthDateFromRequest).to.eql(earthDateFromResponse);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка типов значений в каждой фотографии\", function () {\r",
+							"    var responseBody = pm.response.json(); \r",
+							"\r",
+							"    responseBody.photos.forEach(function(photo) {\r",
+							"        pm.test(\"Проверка типов значений в фотографии\", function () {\r",
+							"          \r",
+							"            pm.expect(photo.id).to.be.a('number');  \r",
+							"            pm.expect(photo.sol).to.be.a('number');  \r",
+							"            pm.expect(photo.camera).to.be.an('object'); \r",
+							"            pm.expect(photo.img_src).to.be.a('string'); \r",
+							"            pm.expect(photo.earth_date).to.be.a('string'); \r",
+							"            pm.expect(photo.rover).to.be.an('object'); \r",
+							"        });\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка типов значений камеры в каждой фотографии\", function () {\r",
+							"    var responseBody = pm.response.json();\r",
+							"\r",
+							"    responseBody.photos.forEach(function(photo) {\r",
+							"        pm.test(\"Проверка типов значений камеры в фотографии\", function () {\r",
+							"    \r",
+							"            pm.expect(photo.camera).to.be.an('object');  \r",
+							"            pm.expect(photo.camera.id).to.be.a('number');  \r",
+							"            pm.expect(photo.camera.name).to.be.a('string'); \r",
+							"            pm.expect(photo.camera.rover_id).to.be.a('number');  \r",
+							"            pm.expect(photo.camera.full_name).to.be.a('string'); \r",
+							"        });\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"//postbot\r",
+							"pm.test(\"Presence of Content-Type header in the response\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Each photo object contains the expected fields\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData.photos).to.be.an('array').that.is.not.empty;\r",
+							"    \r",
+							"    responseData.photos.forEach(function(photo) {\r",
+							"        pm.expect(photo).to.have.property('id');\r",
+							"        pm.expect(photo).to.have.property('sol');\r",
+							"        pm.expect(photo).to.have.property('camera');\r",
+							"        pm.expect(photo).to.have.property('img_src');\r",
+							"        pm.expect(photo).to.have.property('earth_date');\r",
+							"        pm.expect(photo).to.have.property('rover');\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Rover object has required fields\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData.photos).to.be.an('array');\r",
+							"    responseData.photos.forEach(function(photo) {\r",
+							"        pm.expect(photo.rover).to.be.an('object');\r",
+							"        pm.expect(photo.rover).to.have.property('id');\r",
+							"        pm.expect(photo.rover).to.have.property('name');\r",
+							"        pm.expect(photo.rover).to.have.property('landing_date');\r",
+							"        pm.expect(photo.rover).to.have.property('launch_date');\r",
+							"        pm.expect(photo.rover).to.have.property('status');\r",
+							"        pm.expect(photo.rover).to.have.property('max_sol');\r",
+							"        pm.expect(photo.rover).to.have.property('max_date');\r",
+							"        pm.expect(photo.rover).to.have.property('total_photos');\r",
+							"        pm.expect(photo.rover).to.have.property('cameras');\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-06-03&api_key=tyc0Fx30z41bzSxVTp1ftvnQ14GUquk0GbmHgEeC",
+					"protocol": "https",
+					"host": [
+						"api",
+						"nasa",
+						"gov"
+					],
+					"path": [
+						"mars-photos",
+						"api",
+						"v1",
+						"rovers",
+						"curiosity",
+						"photos"
+					],
+					"query": [
+						{
+							"key": "earth_date",
+							"value": "2015-06-03"
+						},
+						{
+							"key": "api_key",
+							"value": "tyc0Fx30z41bzSxVTp1ftvnQ14GUquk0GbmHgEeC"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "tyc0Fx30z41bzSxVTp1ftvnQ14GUquk0GbmHgEeC",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "api_key",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
