@@ -1,14 +1,21 @@
-# postman
-Postman collections
+# Postman collections
 
-Коллекция New Collection dummyapi
+1. Коллекция New Collection dummyapi
 
 Файл коллекции: [New Collection dummyapi](<New Collection dummyapi.postman_collection.json>)
 
-Коллекция Pet Store 
+2. Коллекция Pet Store 
 
-Коллекция Cake
+Файл коллекции: [Pet Store](<Pet Store.postman_collection.json>)
 
-Коллекция NASA
+3. Коллекция Cake
 
-Коллекция Vikunja Practice
+Файл коллекции: [Cake](Cake.postman_collection.json)
+
+4. Коллекция NASA
+
+Файл коллекции: [NASA](NASA.postman_collection.json)
+
+5. Коллекция Vikunja Practice
+
+Файл коллекции: [Vikunja Practice](<Vikunja Practice.postman_collection.json>)
