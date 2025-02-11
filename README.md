@@ -34,9 +34,10 @@
 
 ---
 
-# Коллекция Postman: Работа с REST API для сайта CakeEasy
+# Коллекция Postman: Работа с REST API для сайта CakeEasy с помощью DevTools
 
-Коллекции запросов в Postman для тестирования сценариев работы с корзиной и оплатой на сайте [CakeEasy](http://dev.caketeasy.se/). Запросы были скопированы через DevTools и импортированы в Postman.
+Коллекции запросов в Postman для тестирования сценариев работы с корзиной и оплатой на сайте [CakeEasy](http://dev.caketeasy.se/). 
+Запросы были скопированы через DevTools и импортированы в Postman.
 
 - Файл коллекции: [Cake](Cake.postman_collection.json)
 
