@@ -1,7 +1,7 @@
 # Коллекция Postman: Работа с API DummyAPI
 
 Автоматизированная коллекция запросов для тестирования и взаимодействия с API сервиса [DummyAPI](https://dummyapi.io/docs).
-- Файл коллекции: [New Collection dummyapi](<New Collection dummyapi.postman_collection.json>)
+## Файл коллекции: [New Collection dummyapi](<New Collection dummyapi.postman_collection.json>)
 
 ### Описание
 
@@ -19,7 +19,7 @@
 
 Автоматизированная коллекция запросов для тестирования и взаимодействия с API сервиса [Petstore](https://petstore.swagger.io/).
 
-- Файл коллекции: [Pet Store](<Pet Store.postman_collection.json>)
+## Файл коллекции: [Pet Store](<Pet Store.postman_collection.json>)
 
 ### Описание
 
@@ -39,7 +39,7 @@
 Коллекции запросов в Postman для тестирования сценариев работы с корзиной и оплатой на сайте [CakeEasy](http://dev.caketeasy.se/). 
 Запросы были скопированы через DevTools и импортированы в Postman.
 
-- Файл коллекции: [Cake](Cake.postman_collection.json)
+## Файл коллекции: [Cake](Cake.postman_collection.json)
 
 ### Сценарий 1: Добавление товаров в корзину и проверка содержимого
 
@@ -88,7 +88,7 @@
 
 Автоматизированная коллекция запросов для тестирования и взаимодействия с API [NASA Mars Photos](https://api.nasa.gov/).
 
-- Файл коллекции: [NASA](NASA.postman_collection.json)
+## Файл коллекции: [NASA](NASA.postman_collection.json)
 
 ### Описание
 
@@ -108,7 +108,7 @@
 
 Коллекция запросов в Postman для тестирования API Vikunja. Основная задача — проверить работу различных эндпоинтов, включая регистрацию пользователей, авторизацию, создание и управление метками (labels). В коллекции реализованы как **позитивные**, так и **негативные** сценарии, а также проверки для получения определенных статус-кодов.
 
-- Файл коллекции: [Vikunja Practice](<Vikunja Practice.postman_collection.json>)
+## Файл коллекции: [Vikunja Practice](<Vikunja Practice.postman_collection.json>)
 
 ## Основные сценарии
 
